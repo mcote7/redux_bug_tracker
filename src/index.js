@@ -1,6 +1,6 @@
 import store from './store';
 // console.log("store:", store);
-import * as actions from './actions';
+import * as actions from './store/actions';
 
 store.subscribe(()=> {
   console.log("store changed");
