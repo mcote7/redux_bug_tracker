@@ -1,4 +1,5 @@
 import store from './store';
+console.log(store);
 import {bugAdded, bugResolved} from './actions';
 
 store.dispatch(bugAdded("Bug1"));
