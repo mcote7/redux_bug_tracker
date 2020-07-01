@@ -1,15 +1,15 @@
-[
-  {
-    id: 1,
-    description: "",
-    resolved: false
-  }
-]
+import store from './store';
 
-{
-  type: " bugRemoved",
+store.dispatch({
+  type: "bugAdded",
+  payload: {
+    description: "Bug1"
+  }
+});
+store.dispatch({
+  type: "bugRemoved",
   payload: {
     id: 1
   }
-}
-
+});
+console.log("store:",store.getState());
