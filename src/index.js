@@ -1,8 +1,11 @@
-import store from './store';
-console.log(store);
-import {bugAdded, bugResolved} from './actions';
+import store from './customStore';
+// console.log("store:", store);
+import * as actions from './actions';
 
-store.dispatch(bugAdded("Bug1"));
-store.dispatch(bugResolved(1));
+store.subscribe(()=> {
+  console.log("store changed");
+});
 
-console.log("store:",store.getState());
+store.dispatch(actions.bugAdded("Bug1"));
+
+console.log(store.getState())
