@@ -1,5 +1,6 @@
 import configureStore from './store/configureStore';
-import {bugAssignedToUser,
+import {
+  bugAssignedToUser,
   bugAdded,
   bugResolved,
   getUnresolvedBugs,
@@ -23,7 +24,7 @@ store.dispatch(bugAdded({description: "Bug2"}));
 store.dispatch(bugAdded({description: "Bug3"}));
 store.dispatch(bugAssignedToUser({bugId: 1, userId: 1}));
 store.dispatch(bugResolved({id: 1}));
-// store.dispatch(bugRemoved({id: 2}));
+store.dispatch(bugRemoved({id: 2}));
 
 const unresolvedBugs =  getUnresolvedBugs(store.getState());
 console.log("unresolved:", unresolvedBugs);
