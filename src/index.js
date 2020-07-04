@@ -1,5 +1,10 @@
 import configureStore from './store/configureStore';
-import {bugAdded,bugRemoved,bugResolved,getUnresolvedBugs,bugAssignedToUser} from './store/bugs';
+import {bugAssignedToUser,
+  bugAdded,
+  bugResolved,
+  getUnresolvedBugs,
+  getBugsByUser,
+  bugRemoved} from './store/bugs';
 import {projectAdded} from './store/projects';
 import {userAdded} from './store/users';
 
@@ -7,7 +12,7 @@ const store = configureStore();
 // console.log("store:", store);
 
 store.subscribe(()=> {
-  console.log("store changed");
+  console.log("store changed!");
 });
 
 store.dispatch(userAdded({name: "mike"}));
@@ -22,3 +27,6 @@ store.dispatch(bugResolved({id: 1}));
 
 const unresolvedBugs =  getUnresolvedBugs(store.getState());
 console.log("unresolved:", unresolvedBugs);
+
+const usersBugs = getBugsByUser(1)(store.getState());
+console.log("usersBugs:", usersBugs);
