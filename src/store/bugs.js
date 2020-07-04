@@ -16,10 +16,14 @@ const slice = createSlice({
     bugResolved: (bugs,action) => {
       const index = bugs.findIndex(bug => bug.id === action.payload.id);
       bugs[index].resolved = true;
+    },
+    bugRemoved: (bugs,action) => {
+      const index = bugs.findIndex(bug => bug.id === action.payload.id);
+      bugs.splice(index,1);
     }
   }
 });
 console.log("Slice:", slice);
 //bugRemoved?
-export const {bugAdded,bugResolved} = slice.actions;
+export const {bugAdded,bugResolved,bugRemoved} = slice.actions;
 export default slice.reducer;
