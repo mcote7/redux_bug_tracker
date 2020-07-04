@@ -1,4 +1,4 @@
-import {createAction, createReducer, createSlice} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 let lastId = 0;
 
@@ -20,6 +20,6 @@ const slice = createSlice({
   }
 });
 console.log("Slice:", slice);
-
-const {bugAdded,bugResolved} = slice.actions;
+//bugRemoved?
+export const {bugAdded,bugResolved} = slice.actions;
 export default slice.reducer;
