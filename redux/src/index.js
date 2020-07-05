@@ -8,23 +8,21 @@ import {
   bugRemoved} from './store/bugs';
 import {projectAdded} from './store/projects';
 import {userAdded} from './store/users';
+import * as actions from './store/api';
 
 const store = configureStore();
 // console.log("store:", store);
 
-store.dispatch({
-  type: "apiCallBegan",
-  payload: {
-    url: "/bugs",
-    onSuccess: "bugsReceived",
-    onError: "apiRequestFailed"
-  }
-});
+store.dispatch(actions.apiCallBegan({
+  url: "/bugs",
+  onSuccess: "bugsReceived",
+}));
 
-store.dispatch({
-  type: 'error',
-  payload: {message: "i am error"}
-});
+
+// store.dispatch({
+//   type: 'error',
+//   payload: {message: "i am error"}
+// });
 
 // store.dispatch((dispatch,getState) => {
 //   dispatch({type: 'bugsRecieved', bugs: [1,2,3]});
