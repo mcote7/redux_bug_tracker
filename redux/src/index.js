@@ -13,6 +13,15 @@ const store = configureStore();
 // console.log("store:", store);
 
 store.dispatch({
+  type: "apiCallBegan",
+  payload: {
+    url: "/bugs",
+    onSuccess: "bugsReceived",
+    onError: "apiRequestFailed"
+  }
+});
+
+store.dispatch({
   type: 'error',
   payload: {message: "i am error"}
 });
