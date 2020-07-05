@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Mosh Hamedani",
+  "author": "Michael Cote",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
