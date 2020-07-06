@@ -7,14 +7,21 @@
 //   bugRemoved} from './store/bugs';
 // import {projectAdded} from './store/projects';
 // import {userAdded} from './store/users';
+// import {addBug} from './store/bugs';
 import configureStore from './store/configureStore';
-import {loadBugs} from './store/bugs';
+import {loadBugs, resolveBug} from './store/bugs';
 
 const store = configureStore();
 // console.log("store:", store);
 
+//UI layer
 store.dispatch(loadBugs());
+setTimeout(() => store.dispatch(resolveBug(2)), 2000);
+// store.dispatch(addBug({description: "a"}));
 
+
+// store.dispatch(loadBugs());
+// setTimeout(() => store.dispatch(loadBugs()), 2000);
 
 // store.dispatch({
 //   type: 'error',
