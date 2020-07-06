@@ -23,7 +23,7 @@ const slice = createSlice({
       bugs.loading = false;
     },
     bugAssignedToUser: (bugs,action) => {
-      const {bugId,userId} = action.payload;
+      const {id: bugId,userId} = action.payload;
       const index = bugs.list.findIndex(bug => bug.id === bugId);
       bugs.list[index].userId = userId;
     },
@@ -42,7 +42,7 @@ const slice = createSlice({
 });
 console.log("Slice:", slice);
 
-export const {
+const {
   bugAssignedToUser,
   bugAdded,
   bugResolved,
@@ -81,6 +81,14 @@ export const resolveBug = id => apiCallBegan({
   data: {resolved: true},
   onSuccess: bugResolved.type
 });
+
+export const assignBugToUser = (bugId,userId) => apiCallBegan({
+  url: url + '/' + bugId,
+  method: "patch",
+  data : {userId},
+  onSuccess: bugAssignedToUser.type
+});
+
 //selector function returns computed state
 export const getUnresolvedBugs = createSelector(
   state => state.entities.bugs,
