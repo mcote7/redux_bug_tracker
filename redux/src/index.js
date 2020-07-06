@@ -8,15 +8,12 @@
 // import {projectAdded} from './store/projects';
 // import {userAdded} from './store/users';
 import configureStore from './store/configureStore';
-import * as actions from './store/api';
+import {loadBugs} from './store/bugs';
 
 const store = configureStore();
 // console.log("store:", store);
 
-store.dispatch(actions.apiCallBegan({
-  url: "/bugs",
-  onSuccess: "bugsReceived",
-}));
+store.dispatch(loadBugs());
 
 
 // store.dispatch({
