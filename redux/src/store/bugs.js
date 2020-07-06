@@ -42,7 +42,7 @@ const slice = createSlice({
 });
 console.log("Slice:", slice);
 
-const {
+export const {
   bugAssignedToUser,
   bugAdded,
   bugResolved,
