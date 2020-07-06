@@ -24,12 +24,12 @@ const slice = createSlice({
       });
     },
     bugResolved: (bugs,action) => {
-      const index = bugs.findIndex(bug => bug.id === action.payload.id);
-      bugs[index].resolved = true;
+      const index = bugs.list.findIndex(bug => bug.id === action.payload.id);
+      bugs.list[index].resolved = true;
     },
     bugRemoved: (bugs,action) => {
-      const index = bugs.findIndex(bug => bug.id === action.payload.id);
-      bugs.splice(index,1);
+      const index = bugs.list.findIndex(bug => bug.id === action.payload.id);
+      bugs.list.splice(index,1);
     }
   }
 });
@@ -42,10 +42,10 @@ export default slice.reducer;
 export const getUnresolvedBugs = createSelector(
   state => state.entities.bugs,
   state => state.entities.projects,
-  (bugs,projects) => bugs.filter(bug => !bug.resolved)
+  (bugs,projects) => bugs.list.filter(bug => !bug.resolved)
 );
 
 export const getBugsByUser = userId => createSelector(
   state => state.entities.bugs,
-  bugs => bugs.filter(bug => bug.userId === userId)
+  bugs => bugs.list.filter(bug => bug.userId === userId)
 );
