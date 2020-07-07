@@ -14,7 +14,7 @@ const slice = createSlice({
     }
   }
 });
-console.log("Slice:", slice);
+// console.log("Slice:", slice);
 
 export const {userAdded} = slice.actions;
 export default slice.reducer;

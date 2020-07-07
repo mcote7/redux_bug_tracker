@@ -40,7 +40,7 @@ const slice = createSlice({
     }
   }
 });
-console.log("Slice:", slice);
+// console.log("Slice:", slice);
 
 export const {
   bugAssignedToUser,
