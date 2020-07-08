@@ -1,5 +1,7 @@
-const func = ({dispatch,getState}) => next => action => {
-  typeof action === 'function'?action(dispatch,getState):next(action);
-  console.log("func:", func)
+// Thunk / Func
+const func = ({ dispatch, getState }) => next => action => {
+  if (typeof action === "function") action(dispatch, getState);
+  else next(action);
 };
+
 export default func;

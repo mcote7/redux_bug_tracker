@@ -1,19 +1,19 @@
-import React from 'react';
-// import Bugs from './components/bugs';
-import './App.css';
-import configureStore from './store/configureStore';
-import {Provider} from 'react-redux';
-import bugsList from './components/bugsList';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Bugs from "./components/Bugs";
+import configureStore from "./store/configureStore";
+import { Provider } from "react-redux";
+import BugsList from "./components/BugsList";
 
 const store = configureStore();
 
 function App() {
   return (
-    <Provider value={store}>
-      {/* <Bugs/> */}
-      <bugsList/>
+    <Provider store={store}>
+      <BugsList />
     </Provider>
   );
-};
+}
 
 export default App;

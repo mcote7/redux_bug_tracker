@@ -1,8 +1,11 @@
+// SNA
 const logger = param => store => next => action => {
-  // console.log("next", next);
-  // console.log("Store", store);
-  // console.log("action", action);
-  // console.log("param", param);
+  console.log("Logging", param);
   return next(action);
+  // logger > toast > api
 };
+
 export default logger;
+
+// Currying
+// N => 1

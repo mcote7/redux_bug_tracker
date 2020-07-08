@@ -1,12 +1,13 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 let lastId = 0;
 
 const slice = createSlice({
-  name: 'users',
+  name: "users",
   initialState: [],
   reducers: {
-    userAdded: (users,action) => {
+    // action => action handler
+    userAdded: (users, action) => {
       users.push({
         id: ++lastId,
         name: action.payload.name
@@ -14,7 +15,7 @@ const slice = createSlice({
     }
   }
 });
-// console.log("Slice:", slice);
 
-export const {userAdded} = slice.actions;
+export const { userAdded } = slice.actions;
+
 export default slice.reducer;
